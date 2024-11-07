@@ -1,0 +1,28 @@
+{
+    "name": "SourceAzureSqlLink",
+    "properties": {
+        "annotations": [],
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "server": "ncplserver.database.windows.net",
+            "database": "ncplsampledb",
+            "encrypt": "mandatory",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "sandip",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "keyvaultlink",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "password"
+            }
+        },
+        "connectVia": {
+            "referenceName": "AutoResolveIntegrationRuntime",
+            "type": "IntegrationRuntimeReference"
+        }
+    },
+    "type": "Microsoft.Synapse/workspaces/linkedservices"
+}

@@ -1,0 +1,30 @@
+{
+    "name": "sourcesqlds",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "SourceAzureSqlLink",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "srcSchema": {
+                "type": "string"
+            },
+            "srcTable": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": {
+                "value": "@dataset().srcSchema",
+                "type": "Expression"
+            },
+            "table": {
+                "value": "@dataset().srcTable",
+                "type": "Expression"
+            }
+        }
+    }
+}

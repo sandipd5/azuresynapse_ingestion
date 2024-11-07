@@ -1,0 +1,38 @@
+{
+    "name": "destinationlakeds",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "DestinAzureDataLakeLink",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "srcSchema": {
+                "type": "string"
+            },
+            "srcTable": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": {
+                    "value": "@concat(dataset().srcTable,'_',utcNow())",
+                    "type": "Expression"
+                },
+                "folderPath": {
+                    "value": "@concat(dataset().srcSchema,'/',dataset().srcTable)",
+                    "type": "Expression"
+                },
+                "fileSystem": "dynamicfolder"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+        },
+        "schema": []
+    }
+}
