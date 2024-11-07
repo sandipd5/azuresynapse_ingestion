@@ -16,7 +16,7 @@ CREATE EXTERNAL DATA SOURCE MyDataLakeStorage
 WITH (
     LOCATION = 'abfs://ncpltut@samplestoragencpl.dfs.core.windows.net'
 )
--- External Table
+-- External Table, change file path accordingly
 CREATE EXTERNAL TABLE dbo.my_external_data (
     account_id INT,
     customer_id INT,
